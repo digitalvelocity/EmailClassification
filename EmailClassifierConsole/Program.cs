@@ -61,7 +61,7 @@ namespace EmailClassifierConsole
                     //loop through each email and get what fields you want...
                     foreach (var email in emailListResponse.Messages)
                     {
-                        ClasssifyMessage(gmailService, email, string.Join(" ", args);
+                        ClasssifyMessage(gmailService, email, string.Join(" ", args));
                     }
                 }
             }
@@ -181,10 +181,10 @@ namespace EmailClassifierConsole
                 int tf = GetTermFrequencyWeight(topic, subject + StripHTML(body));
                 Console.WriteLine(string.Format("TF: {0}", tf));
 
-                if (tf > 3) // set threshold arbitrarily for testing purposes
+                if (tf >= 1) // set threshold arbitrarily for testing purposes
                 {
                     List<string> labelsToAdd = new List<string>();
-                    labelsToAdd.AddRange(topic.Split(" ".ToArray()));
+                    labelsToAdd.Add(topic);
                     List<string> labelsToRemove = new List<string>();
                     
                     try
