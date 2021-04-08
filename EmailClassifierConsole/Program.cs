@@ -13,6 +13,7 @@ using System.Linq;
 
 namespace EmailClassifierConsole
 {
+    /* Add class description */
     class Program
     {
         static string[] Scopes = { GmailService.Scope.MailGoogleCom};
